@@ -18,37 +18,35 @@ datasource db {
 // 📦 Core database models
 //
 model Customer {
-  id      String  @id @default(auto()) @map("_id") @db.ObjectId
-  name    String
-  phone   String
-  email   String
-  address String?
-
+  id        String    @id @default(auto()) @map("_id") @db.ObjectId
+  name      String
+  phone     String
+  email     String
+  address   String?
   createdAt DateTime? @default(now())
   updatedAt DateTime? @default(now())
 
   // 🔗 Relations
   userId String? @db.ObjectId
-  user   User?   @relation(fields: [userId], references: [id])
+  User   User?   @relation(fields: [userId], references: [id])
 
   tickets Ticket[]
 }
 
 model Ticket {
-  id          String @id @default(auto()) @map("_id") @db.ObjectId
+  id          String    @id @default(auto()) @map("_id") @db.ObjectId
   name        String
   description String
   status      String
-
-  createdAt DateTime? @default(now())
-  updatedAt DateTime? @default(now())
+  createdAt   DateTime? @default(now())
+  updatedAt   DateTime? @default(now())
 
   // 🔗 Relations
   customerId String?   @db.ObjectId
   customer   Customer? @relation(fields: [customerId], references: [id])
 
   userId String? @db.ObjectId
-  user   User?   @relation(fields: [userId], references: [id])
+  User   User?   @relation(fields: [userId], references: [id])
 }
 
 //
@@ -59,7 +57,7 @@ model Account {
   userId            String  @db.ObjectId
   type              String
   provider          String
-  providerAccountId String  @map("provider_account_id")
+  providerAccountId String
   refresh_token     String? @db.String
   access_token      String? @db.String
   expires_at        Int?
@@ -71,7 +69,6 @@ model Account {
   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
 
   @@unique([provider, providerAccountId])
-  @@map("accounts")
 }
 
 model Session {
@@ -80,15 +77,13 @@ model Session {
   userId       String   @db.ObjectId
   expires      DateTime
   user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
-
-  @@map("sessions")
 }
 
 model User {
   id            String    @id @default(auto()) @map("_id") @db.ObjectId
   name          String?
   email         String?   @unique
-  emailVerified DateTime? @map("email_verified")
+  emailVerified DateTime?
   image         String?
   accounts      Account[]
   sessions      Session[]
@@ -96,8 +91,6 @@ model User {
   // relationships
   tickets   Ticket[]
   customers Customer[]
-
-  @@map("users")
 }
 
 model VerificationToken {
@@ -106,5 +99,4 @@ model VerificationToken {
   expires    DateTime
 
   @@unique([identifier, token])
-  @@map("verification_tokens")
 }

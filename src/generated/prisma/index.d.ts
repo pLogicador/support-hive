@@ -1554,7 +1554,7 @@ export namespace Prisma {
     createdAt?: boolean
     updatedAt?: boolean
     userId?: boolean
-    user?: boolean | Customer$userArgs<ExtArgs>
+    User?: boolean | Customer$UserArgs<ExtArgs>
     tickets?: boolean | Customer$ticketsArgs<ExtArgs>
     _count?: boolean | CustomerCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["customer"]>
@@ -1574,7 +1574,7 @@ export namespace Prisma {
 
   export type CustomerOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "phone" | "email" | "address" | "createdAt" | "updatedAt" | "userId", ExtArgs["result"]["customer"]>
   export type CustomerInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    user?: boolean | Customer$userArgs<ExtArgs>
+    User?: boolean | Customer$UserArgs<ExtArgs>
     tickets?: boolean | Customer$ticketsArgs<ExtArgs>
     _count?: boolean | CustomerCountOutputTypeDefaultArgs<ExtArgs>
   }
@@ -1582,7 +1582,7 @@ export namespace Prisma {
   export type $CustomerPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "Customer"
     objects: {
-      user: Prisma.$UserPayload<ExtArgs> | null
+      User: Prisma.$UserPayload<ExtArgs> | null
       tickets: Prisma.$TicketPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
@@ -1957,7 +1957,7 @@ export namespace Prisma {
    */
   export interface Prisma__CustomerClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
-    user<T extends Customer$userArgs<ExtArgs> = {}>(args?: Subset<T, Customer$userArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    User<T extends Customer$UserArgs<ExtArgs> = {}>(args?: Subset<T, Customer$UserArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
     tickets<T extends Customer$ticketsArgs<ExtArgs> = {}>(args?: Subset<T, Customer$ticketsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$TicketPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
@@ -2366,9 +2366,9 @@ export namespace Prisma {
   }
 
   /**
-   * Customer.user
+   * Customer.User
    */
-  export type Customer$userArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type Customer$UserArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
      * Select specific fields to fetch from the User
      */
@@ -2616,7 +2616,7 @@ export namespace Prisma {
     customerId?: boolean
     userId?: boolean
     customer?: boolean | Ticket$customerArgs<ExtArgs>
-    user?: boolean | Ticket$userArgs<ExtArgs>
+    User?: boolean | Ticket$UserArgs<ExtArgs>
   }, ExtArgs["result"]["ticket"]>
 
 
@@ -2635,14 +2635,14 @@ export namespace Prisma {
   export type TicketOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "description" | "status" | "createdAt" | "updatedAt" | "customerId" | "userId", ExtArgs["result"]["ticket"]>
   export type TicketInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     customer?: boolean | Ticket$customerArgs<ExtArgs>
-    user?: boolean | Ticket$userArgs<ExtArgs>
+    User?: boolean | Ticket$UserArgs<ExtArgs>
   }
 
   export type $TicketPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "Ticket"
     objects: {
       customer: Prisma.$CustomerPayload<ExtArgs> | null
-      user: Prisma.$UserPayload<ExtArgs> | null
+      User: Prisma.$UserPayload<ExtArgs> | null
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
@@ -3017,7 +3017,7 @@ export namespace Prisma {
   export interface Prisma__TicketClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
     customer<T extends Ticket$customerArgs<ExtArgs> = {}>(args?: Subset<T, Ticket$customerArgs<ExtArgs>>): Prisma__CustomerClient<$Result.GetResult<Prisma.$CustomerPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
-    user<T extends Ticket$userArgs<ExtArgs> = {}>(args?: Subset<T, Ticket$userArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    User<T extends Ticket$UserArgs<ExtArgs> = {}>(args?: Subset<T, Ticket$UserArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -3444,9 +3444,9 @@ export namespace Prisma {
   }
 
   /**
-   * Ticket.user
+   * Ticket.User
    */
-  export type Ticket$userArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type Ticket$UserArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
      * Select specific fields to fetch from the User
      */
@@ -7710,7 +7710,7 @@ export namespace Prisma {
     createdAt?: DateTimeNullableFilter<"Customer"> | Date | string | null
     updatedAt?: DateTimeNullableFilter<"Customer"> | Date | string | null
     userId?: StringNullableFilter<"Customer"> | string | null
-    user?: XOR<UserNullableScalarRelationFilter, UserWhereInput> | null
+    User?: XOR<UserNullableScalarRelationFilter, UserWhereInput> | null
     tickets?: TicketListRelationFilter
   }
 
@@ -7723,7 +7723,7 @@ export namespace Prisma {
     createdAt?: SortOrder
     updatedAt?: SortOrder
     userId?: SortOrder
-    user?: UserOrderByWithRelationInput
+    User?: UserOrderByWithRelationInput
     tickets?: TicketOrderByRelationAggregateInput
   }
 
@@ -7739,7 +7739,7 @@ export namespace Prisma {
     createdAt?: DateTimeNullableFilter<"Customer"> | Date | string | null
     updatedAt?: DateTimeNullableFilter<"Customer"> | Date | string | null
     userId?: StringNullableFilter<"Customer"> | string | null
-    user?: XOR<UserNullableScalarRelationFilter, UserWhereInput> | null
+    User?: XOR<UserNullableScalarRelationFilter, UserWhereInput> | null
     tickets?: TicketListRelationFilter
   }, "id">
 
@@ -7784,7 +7784,7 @@ export namespace Prisma {
     customerId?: StringNullableFilter<"Ticket"> | string | null
     userId?: StringNullableFilter<"Ticket"> | string | null
     customer?: XOR<CustomerNullableScalarRelationFilter, CustomerWhereInput> | null
-    user?: XOR<UserNullableScalarRelationFilter, UserWhereInput> | null
+    User?: XOR<UserNullableScalarRelationFilter, UserWhereInput> | null
   }
 
   export type TicketOrderByWithRelationInput = {
@@ -7797,7 +7797,7 @@ export namespace Prisma {
     customerId?: SortOrder
     userId?: SortOrder
     customer?: CustomerOrderByWithRelationInput
-    user?: UserOrderByWithRelationInput
+    User?: UserOrderByWithRelationInput
   }
 
   export type TicketWhereUniqueInput = Prisma.AtLeast<{
@@ -7813,7 +7813,7 @@ export namespace Prisma {
     customerId?: StringNullableFilter<"Ticket"> | string | null
     userId?: StringNullableFilter<"Ticket"> | string | null
     customer?: XOR<CustomerNullableScalarRelationFilter, CustomerWhereInput> | null
-    user?: XOR<UserNullableScalarRelationFilter, UserWhereInput> | null
+    User?: XOR<UserNullableScalarRelationFilter, UserWhereInput> | null
   }, "id">
 
   export type TicketOrderByWithAggregationInput = {
@@ -8102,7 +8102,7 @@ export namespace Prisma {
     address?: string | null
     createdAt?: Date | string | null
     updatedAt?: Date | string | null
-    user?: UserCreateNestedOneWithoutCustomersInput
+    User?: UserCreateNestedOneWithoutCustomersInput
     tickets?: TicketCreateNestedManyWithoutCustomerInput
   }
 
@@ -8125,7 +8125,7 @@ export namespace Prisma {
     address?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    user?: UserUpdateOneWithoutCustomersNestedInput
+    User?: UserUpdateOneWithoutCustomersNestedInput
     tickets?: TicketUpdateManyWithoutCustomerNestedInput
   }
 
@@ -8178,7 +8178,7 @@ export namespace Prisma {
     createdAt?: Date | string | null
     updatedAt?: Date | string | null
     customer?: CustomerCreateNestedOneWithoutTicketsInput
-    user?: UserCreateNestedOneWithoutTicketsInput
+    User?: UserCreateNestedOneWithoutTicketsInput
   }
 
   export type TicketUncheckedCreateInput = {
@@ -8199,7 +8199,7 @@ export namespace Prisma {
     createdAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     customer?: CustomerUpdateOneWithoutTicketsNestedInput
-    user?: UserUpdateOneWithoutTicketsNestedInput
+    User?: UserUpdateOneWithoutTicketsNestedInput
   }
 
   export type TicketUncheckedUpdateInput = {
@@ -9402,7 +9402,7 @@ export namespace Prisma {
     status: string
     createdAt?: Date | string | null
     updatedAt?: Date | string | null
-    user?: UserCreateNestedOneWithoutTicketsInput
+    User?: UserCreateNestedOneWithoutTicketsInput
   }
 
   export type TicketUncheckedCreateWithoutCustomerInput = {
@@ -9493,7 +9493,7 @@ export namespace Prisma {
     address?: string | null
     createdAt?: Date | string | null
     updatedAt?: Date | string | null
-    user?: UserCreateNestedOneWithoutCustomersInput
+    User?: UserCreateNestedOneWithoutCustomersInput
   }
 
   export type CustomerUncheckedCreateWithoutTicketsInput = {
@@ -9557,7 +9557,7 @@ export namespace Prisma {
     address?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    user?: UserUpdateOneWithoutCustomersNestedInput
+    User?: UserUpdateOneWithoutCustomersNestedInput
   }
 
   export type CustomerUncheckedUpdateWithoutTicketsInput = {
@@ -9957,7 +9957,7 @@ export namespace Prisma {
     status?: StringFieldUpdateOperationsInput | string
     createdAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    user?: UserUpdateOneWithoutTicketsNestedInput
+    User?: UserUpdateOneWithoutTicketsNestedInput
   }
 
   export type TicketUncheckedUpdateWithoutCustomerInput = {
