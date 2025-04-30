@@ -1,5 +1,6 @@
 "use client";
 
+import { Input } from "@/components/input";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
@@ -36,10 +37,63 @@ export function NewCustomerForm() {
     resolver: zodResolver(schema),
   });
 
+  function handleRegisterCustomer(data: FormData) {
+    console.log(data);
+  }
+
   return (
-    <form action="">
-      <label>Full name</label>
-      <input type="text" placeholder="Enter full name..." />
+    <form
+      className="flex flex-col mt-6"
+      onSubmit={handleSubmit(handleRegisterCustomer)}
+    >
+      <label className="mb-1 text-lg font-medium">Full name</label>
+      <Input
+        type="text"
+        name="name"
+        placeholder="Type full name"
+        error={errors.name?.message}
+        register={register}
+      />
+
+      <section className="flex gap-2 my-2 flex-col sm:flex-row">
+        <div className="flex-1">
+          <label className="mb-1 text-lg font-medium">Phone</label>
+          <Input
+            type="text"
+            name="phone"
+            placeholder="Example: (xx) xxxxxxxxx"
+            error={errors.phone?.message}
+            register={register}
+          />
+        </div>
+
+        <div className="flex-1">
+          <label className="mb-1 text-lg font-medium">Email</label>
+          <Input
+            type="email"
+            name="email"
+            placeholder="Type your email..."
+            error={errors.email?.message}
+            register={register}
+          />
+        </div>
+      </section>
+
+      <label className="mb-1 text-lg font-medium">Full address</label>
+      <Input
+        type="text"
+        name="address"
+        placeholder="Type customer address..."
+        error={errors.address?.message}
+        register={register}
+      />
+
+      <button
+        type="submit"
+        className="bg-blue-600 my-4 px-2 h-11 rounded text-white font-medium hover:bg-black duration-300"
+      >
+        Register
+      </button>
     </form>
   );
 }
