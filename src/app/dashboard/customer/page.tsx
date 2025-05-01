@@ -31,12 +31,17 @@ export default async function Customer() {
             New customer
           </Link>
         </div>
-
         <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 mt-3">
           {customers.map((customer) => (
             <CardCustomer key={customer.id} customer={customer} />
           ))}
         </section>
+
+        {customers.length === 0 && (
+          <h3 className="text-gray-700">
+            You do not have a registered customer yet.
+          </h3>
+        )}
       </main>
     </Container>
   );
