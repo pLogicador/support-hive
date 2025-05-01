@@ -1,6 +1,23 @@
+"use client";
+
+import { api } from "@/lib/api";
 import { CustomerProps } from "@/utils/customer.type";
 
 export function CardCustomer({ customer }: { customer: CustomerProps }) {
+  async function handleDeleteCustomerId() {
+    try {
+      const res = await api.delete("/api/customer", {
+        params: {
+          id: customer.id,
+        },
+      });
+
+      console.log(res.data);
+    } catch (err) {
+      console.log(err);
+    }
+  }
+
   return (
     <article className="flex flex-col bg-gray-100 border-2 p-2 rounded-lg gap-2 hover:scale-105 duration-300">
       <h2>
@@ -12,7 +29,10 @@ export function CardCustomer({ customer }: { customer: CustomerProps }) {
       <p>
         <a className="font-bold">Phone:</a> {customer.phone}
       </p>
-      <button className="self-start bg-red-500 px-4 rounded text-white mt-2 hover:bg-red-900">
+      <button
+        className="self-start bg-red-500 px-4 rounded text-white mt-2 hover:bg-red-900"
+        onClick={handleDeleteCustomerId}
+      >
         Delete
       </button>
     </article>
