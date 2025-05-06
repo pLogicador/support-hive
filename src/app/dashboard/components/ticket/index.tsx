@@ -4,7 +4,7 @@ import { CustomerProps } from "@/utils/customer.type";
 import { TicketProps } from "@/utils/ticket.type";
 import { useRouter } from "next/navigation";
 import { FiCheckSquare, FiFile, FiTrash2 } from "react-icons/fi";
-//#783c3a
+
 interface TicketItemProps {
   ticket: TicketProps;
   customer: CustomerProps | null;
